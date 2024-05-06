@@ -1,0 +1,66 @@
+//SERVICE SECTION
+section#services {
+  background: url("../images/bg-dark.png") center / cover no-repeat fixed;
+  .services-wrapper {
+    position: relative;
+    @include respond(tab-port) {
+      flex-wrap: wrap;
+    }
+    @include respond(tab-land) {
+      flex-wrap: nowrap;
+    }
+  }
+  .services-wrapper img {
+    height: 80%;
+    padding: 1rem;
+  }
+  .card {
+    margin-bottom: 7rem;
+    position: relative;
+
+    @include respond(tab-port) {
+      margin: 0.5rem;
+      margin-bottom: 8rem;
+    }
+    &-body {
+      padding: 1.5rem 0 4rem 0;
+      min-height: 14rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h3{
+        max-width: 80%;
+      }
+    }
+  }
+  .btn-position {
+    position: absolute;
+    bottom: -4%;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    width: 84%;
+    padding: 0.3rem 0.5rem;
+  }
+  .btn {
+    -webkit-box-shadow: -1px 25px 56px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 25px 56px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 25px 56px 2px rgba(0, 0, 0, 0.75);
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  .other-services {
+    width: 66%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 !important;
+    .btn-all-services-position {
+      @include respond(tab-port) {
+        position: absolute;
+        bottom: -5%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+      }
+    }
+  }
+}

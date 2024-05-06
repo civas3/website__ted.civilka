@@ -1,0 +1,102 @@
+//GLOBAL
+
+* {
+  font-family: "Roboto", sans-serif;
+  //*62.5% is equal to 10px = 1rem
+  font-size: 62.5%;
+  letter-spacing: 1.5px;
+  
+}
+
+
+
+
+section {
+  padding-top: 15rem !important;
+  padding-bottom: 15rem;
+  
+}
+
+.overlay{
+  z-index: 3;
+}
+
+section#about,
+section#portfolio,
+section#services,
+section#contact {
+  height: 100%;
+}
+
+section#about,
+section#experience,
+section#testimonial,
+section#portfolio,
+section#services,
+section#contact {
+  padding-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section#about .about-wrapper,
+section#experience .experience-wrapper,
+section#testimonial .testimonial-wrapper,
+section#services .services-wrapper,
+section#contact .contact-wrapper,
+footer#footer .main-footer {
+  flex-direction: column;
+}
+
+//MEDIA
+@include respond(tab-port) {
+  section#experience .experience-wrapper,
+  section#testimonial .testimonial-wrapper,
+  section#services .services-wrapper,
+  section#contact .contact-wrapper {
+    flex-direction: row;
+  }
+}
+
+@include respond(tab-land) {
+  section#about .about-wrapper {
+    flex-direction: row;
+  }
+}
+
+
+//modal
+.modal-backdrop.show{
+  z-index: 2 !important;
+}
+.modal.show .modal-dialog {
+  margin-top: 7rem !important;
+}
+
+//Background images fixed for IOS
+.bg-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg {
+  position: fixed;
+  //display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
+  will-change: transform;
+  z-index: 0;
+  background-position: center top;
+  overflow: hidden;
+}
+

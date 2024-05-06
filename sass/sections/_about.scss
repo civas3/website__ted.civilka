@@ -1,0 +1,118 @@
+//ABOUT SECTION
+section#about {
+  position: relative;
+  @include respond(large-desktop) {
+    flex-direction: row !important;
+  }
+
+  .about-wrapper {
+    .ted-image {
+      width: 100%;
+      display: flex;
+      @include respond(tab-land) {
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      @include respond(tab-land) {
+        width: 90%;
+      }
+    }
+  }
+  //absolute images
+  .about-image1,
+  .about-image2,
+  .about-image3,
+  .about-image4,
+  .about-image5 {
+    height: 100px;
+    overflow: hidden;
+    @include respond(b-phone) {
+      height: 120px;
+    }
+    @include respond(tab-port) {
+      height: 150px;
+    }
+    @include respond(big-desktop) {
+      height: 198px;
+    }
+  }
+  .about-image1 {
+    //Bart
+    position: absolute;
+    top: 25%;
+    left: -5%;
+    @include respond(m-phone) {
+      top: 30%;
+    }
+    @include respond(tab-port) {
+      left: -4%;
+    }
+    @include respond(large-desktop) {
+      left: -2%;
+    }
+  }
+  .about-image2 {
+    //All
+    position: absolute;
+    bottom: 7%;
+    left: 20%;
+    @include respond(m-phone) {
+      bottom: 5%;
+    }
+    @include respond(tab-port) {
+      bottom: 4%;
+    }
+    @include respond(tab-land) {
+      bottom: 4%;
+      left: 60%;
+    }
+    @include respond(large-desktop) {
+      bottom: 8%;
+      left: 57%;
+    }
+  }
+  .about-image3 {
+    //Lebron
+    position: absolute;
+    top: 29.8%;
+    left: 68%;
+  
+    
+    @include respond(m-phone) {
+      top: 35%;
+      left: 70%;
+    }
+    @include respond(tab-port) {
+      top: 45%;
+    }
+    @include respond(tab-land) {
+      top: 20%;
+      left: 85%;
+    }
+  }
+  .about-image4 {
+    //Pizza
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    overflow: hidden;
+    @include respond(m-phone) {
+      left: 71%;
+      bottom: 0%;
+    }
+    @include respond(tab-land) {
+      left: 83%;
+      bottom: -1%;
+    }
+  }
+  .about-image5 {
+    //NBA
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    @include respond(tab-port) {
+      left: 0;
+    }
+  }
+}

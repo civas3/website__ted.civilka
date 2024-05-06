@@ -1,0 +1,62 @@
+//HERO SECTION
+section#hero {
+  height: 100vh;
+  background-color: #161513;
+    position: relative;
+    width: 100%;
+ 
+  .effect {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    @include respond(tab-land) {
+      top: 85%;
+    }
+  }
+  .hero-content {
+    height: 100%;
+    overflow: hidden !important;
+    z-index: 2;
+    .line {
+      border-top: #f2f2f2 0.2rem solid;
+      width: 80%;
+      margin: 0 auto;
+      -webkit-animation-name: leftToRight;
+      animation-name: leftToRight;
+      -webkit-animation-duration: 3s;
+      animation-duration: 3s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+    span {
+      display: block;
+    }
+
+    .h-text1 {
+      margin-bottom: 1rem;
+      position: relative;
+      -webkit-animation-name: zoomInDown;
+      animation-name: zoomInDown;
+      -webkit-animation-duration: 3s;
+      animation-duration: 3s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+    .h-text2 {
+      -webkit-animation: 3.5s ease 0s normal forwards 1 fadeIn;
+      animation: 3.5s ease 0s normal forwards 1 fadeIn;
+    }
+  }
+  .subtitle {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    -webkit-animation: 4.5s ease 0s normal forwards 1 fadeIn;
+    animation: 4.5s ease 0s normal forwards 1 fadeIn;
+    z-index: 2;
+  }
+}

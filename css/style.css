@@ -1,0 +1,721 @@
+/*abstracts*/
+/*
+0 - 320px:      Smaller mobile phones
+320 - 360px:    Medium mobile phones
+360 - 480px:    Biger mobile phones
+480 - 768px:    Tablet portrait
+768 - 1024px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- s-phone
+- m-phone
+- b-phone
+- tab-port
+- tab-land
+- large-desktop
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+/*base*/
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  66% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  66% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes leftToRight {
+  0% {
+    width: 0; }
+  66% {
+    width: 0; }
+  100% {
+    width: 80%; } }
+
+@-webkit-keyframes leftToRight {
+  0% {
+    width: 0; }
+  66% {
+    width: 0; }
+  100% {
+    width: 80%; } }
+
+@-webkit-keyframes zoomInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+
+@keyframes zoomInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+    transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+    -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1); } }
+
+* {
+  font-family: "Roboto", sans-serif;
+  font-size: 62.5%;
+  letter-spacing: 1.5px; }
+
+section {
+  padding-top: 15rem !important;
+  padding-bottom: 15rem; }
+
+.overlay {
+  z-index: 3; }
+
+section#about,
+section#portfolio,
+section#services,
+section#contact {
+  height: 100%; }
+
+section#about,
+section#experience,
+section#testimonial,
+section#portfolio,
+section#services,
+section#contact {
+  padding-top: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+section#about .about-wrapper,
+section#experience .experience-wrapper,
+section#testimonial .testimonial-wrapper,
+section#services .services-wrapper,
+section#contact .contact-wrapper,
+footer#footer .main-footer {
+  flex-direction: column; }
+
+@media only screen and (min-width: 48em) {
+  section#experience .experience-wrapper,
+  section#testimonial .testimonial-wrapper,
+  section#services .services-wrapper,
+  section#contact .contact-wrapper {
+    flex-direction: row; } }
+
+@media only screen and (min-width: 64em) {
+  section#about .about-wrapper {
+    flex-direction: row; } }
+
+.modal-backdrop.show {
+  z-index: 2 !important; }
+
+.modal.show .modal-dialog {
+  margin-top: 7rem !important; }
+
+.bg-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
+  will-change: transform;
+  z-index: 0;
+  background-position: center top;
+  overflow: hidden; }
+
+p {
+  line-height: 3rem;
+  font-size: 1.8rem; }
+
+h2 {
+  font-size: 3.4rem;
+  text-shadow: black 0.1rem 0.1rem;
+  overflow: hidden; }
+  h2:not(:first-child) {
+    font-weight: bold; }
+  @media only screen and (min-width: 64em) {
+    h2 {
+      font-size: 4rem; } }
+
+h3,
+h4,
+h5 {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  text-shadow: black 0.1rem 0.1rem;
+  color: white; }
+
+a {
+  text-decoration: none;
+  font-size: 1.8rem; }
+
+th,
+td {
+  font-size: 1.8rem; }
+  @media only screen and (min-width: 64em) {
+    th,
+    td {
+      font-size: 1.6rem; } }
+
+th {
+  padding-left: 2rem !important;
+  text-align: left; }
+
+td {
+  text-align: center !important; }
+
+span {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.btn {
+  font-size: 2.1rem;
+  color: white;
+  text-transform: uppercase; }
+  @media only screen and (min-width: 48em) {
+    .btn {
+      font-size: 2rem !important; } }
+
+.fa {
+  font-size: 2rem !important;
+  padding-bottom: 1rem; }
+
+#service-modal1,
+#service-modal2,
+#service-modal3,
+#service-modal4,
+#service-modal-other,
+#service-modal-terms {
+  color: #333333; }
+  #service-modal1 h5,
+  #service-modal2 h5,
+  #service-modal3 h5,
+  #service-modal4 h5,
+  #service-modal-other h5,
+  #service-modal-terms h5 {
+    color: black; }
+
+section#hero {
+  color: white; }
+  section#hero .effect {
+    text-align: center;
+    text-shadow: 0.2rem 0.2rem black; }
+  section#hero .hero-content .h-text1 {
+    color: #f6f09d;
+    font-size: 3.6rem;
+    letter-spacing: 0.3rem; }
+    @media only screen and (min-width: 48em) {
+      section#hero .hero-content .h-text1 {
+        font-size: 5rem; } }
+  section#hero .hero-content .h-text2 {
+    font-size: 2rem;
+    color: white; }
+    @media only screen and (min-width: 48em) {
+      section#hero .hero-content .h-text2 {
+        font-size: 3.4rem; } }
+  section#hero .subtitle {
+    text-align: center;
+    text-shadow: 0.2rem 0.2rem black;
+    color: white;
+    font-size: 2rem; }
+    @media only screen and (min-width: 48em) {
+      section#hero .subtitle {
+        font-size: 3.4rem; } }
+    @media only screen and (min-width: 75em) {
+      section#hero .subtitle {
+        font-size: 2rem; } }
+
+section#testimonial h3 {
+  color: black; }
+
+section#experience .experience-content {
+  color: #f2f2f2; }
+  section#experience .experience-content h4 {
+    font-size: 2.8rem;
+    font-weight: bold; }
+  section#experience .experience-content h5 {
+    text-transform: capitalize; }
+  section#experience .experience-content span {
+    color: white;
+    font-size: 1.4rem; }
+
+section#services .card h3 {
+  color: black; }
+
+section#services .model {
+  text-align: left; }
+
+section#contact .form-control {
+  font-size: 1.6rem; }
+
+section#contact #terms-con-button {
+  font-size: 1.8rem; }
+
+section#contact .contact-details {
+  color: white; }
+
+section#contact .modal-body p,
+section#contact .modal-body span {
+  font-size: 1.6rem !important; }
+
+footer#footer {
+  position: relative;
+  color: white; }
+  footer#footer .main-footer .social a {
+    color: #f2f2f2;
+    font-size: 1.5rem; }
+    footer#footer .main-footer .social a:hover {
+      color: #f6f09d; }
+  footer#footer .main-footer .rights {
+    font-size: 1.4rem;
+    position: absolute;
+    bottom: 5%; }
+    footer#footer .main-footer .rights span {
+      font-size: 1.4rem; }
+
+.secondHeader {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  text-shadow: black 0.2rem 0.2rem; }
+
+.sticky {
+  position: fixed !important;
+  top: 0;
+  height: 6rem; }
+  .sticky .navbar {
+    border-top-left-radius: 0rem !important;
+    border-top-right-radius: 0rem !important;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem; }
+
+.active {
+  color: black !important;
+  font-weight: bold;
+  text-decoration: underline #1f72fa; }
+
+/*layout*/
+header#header .main-nav {
+  position: absolute;
+  bottom: 0; }
+  @media only screen and (min-width: 64em) {
+    header#header .main-nav {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0%); } }
+
+@media only screen and (min-width: 64em) {
+  header#header .navbar {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem; } }
+
+@media only screen and (min-width: 48em) {
+  header#header .navbar-brand img {
+    height: 6rem !important;
+    padding-right: 2rem; } }
+
+@media only screen and (min-width: 64em) {
+  header#header .navbar-brand img {
+    height: 4rem !important; } }
+
+@media only screen and (min-width: 75em) {
+  header#header .navbar-brand img {
+    height: 3rem !important; } }
+
+@media only screen and (min-width: 48em) {
+  header#header .navbar-toggler-icon {
+    padding: 3rem; } }
+
+@media only screen and (min-width: 75em) {
+  header#header .navbar-toggler-icon {
+    font-size: 2rem; } }
+
+header#header .navbar-nav .nav-link {
+  font-size: 3.4rem !important; }
+  @media only screen and (min-width: 64em) {
+    header#header .navbar-nav .nav-link {
+      font-size: 2.4rem !important;
+      padding-right: 1.5rem; } }
+  @media only screen and (min-width: 75em) {
+    header#header .navbar-nav .nav-link {
+      font-size: 2rem !important; } }
+
+footer#footer {
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+  background: #222222; }
+  @media only screen and (min-width: 48em) {
+    footer#footer .main-footer {
+      width: 100%; } }
+  footer#footer .main-footer .social a {
+    margin-bottom: 1rem;
+    padding-bottom: 3rem; }
+  footer#footer .main-footer .social i {
+    padding: 0 1rem 0 1rem;
+    margin-right: 1rem; }
+  footer#footer .main-footer .rights {
+    padding: 0 1rem; }
+
+/*sections*/
+section#hero {
+  height: 100vh;
+  background-color: #161513;
+  position: relative;
+  width: 100%; }
+  section#hero .effect {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; }
+    @media only screen and (min-width: 64em) {
+      section#hero .effect {
+        top: 85%; } }
+  section#hero .hero-content {
+    height: 100%;
+    overflow: hidden !important;
+    z-index: 2; }
+    section#hero .hero-content .line {
+      border-top: #f2f2f2 0.2rem solid;
+      width: 80%;
+      margin: 0 auto;
+      -webkit-animation-name: leftToRight;
+      animation-name: leftToRight;
+      -webkit-animation-duration: 3s;
+      animation-duration: 3s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both; }
+    section#hero .hero-content span {
+      display: block; }
+    section#hero .hero-content .h-text1 {
+      margin-bottom: 1rem;
+      position: relative;
+      -webkit-animation-name: zoomInDown;
+      animation-name: zoomInDown;
+      -webkit-animation-duration: 3s;
+      animation-duration: 3s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both; }
+    section#hero .hero-content .h-text2 {
+      -webkit-animation: 3.5s ease 0s normal forwards 1 fadeIn;
+      animation: 3.5s ease 0s normal forwards 1 fadeIn; }
+  section#hero .subtitle {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    -webkit-animation: 4.5s ease 0s normal forwards 1 fadeIn;
+    animation: 4.5s ease 0s normal forwards 1 fadeIn;
+    z-index: 2; }
+
+section#about {
+  position: relative; }
+  @media only screen and (min-width: 75em) {
+    section#about {
+      flex-direction: row !important; } }
+  section#about .about-wrapper .ted-image {
+    width: 100%;
+    display: flex; }
+    @media only screen and (min-width: 64em) {
+      section#about .about-wrapper .ted-image {
+        width: 50%;
+        margin-right: auto;
+        margin-left: auto; } }
+    @media only screen and (min-width: 64em) {
+      section#about .about-wrapper .ted-image {
+        width: 90%; } }
+  section#about .about-image1,
+  section#about .about-image2,
+  section#about .about-image3,
+  section#about .about-image4,
+  section#about .about-image5 {
+    height: 100px;
+    overflow: hidden; }
+    @media only screen and (min-width: 30em) {
+      section#about .about-image1,
+      section#about .about-image2,
+      section#about .about-image3,
+      section#about .about-image4,
+      section#about .about-image5 {
+        height: 120px; } }
+    @media only screen and (min-width: 48em) {
+      section#about .about-image1,
+      section#about .about-image2,
+      section#about .about-image3,
+      section#about .about-image4,
+      section#about .about-image5 {
+        height: 150px; } }
+    @media only screen and (min-width: 112.5em) {
+      section#about .about-image1,
+      section#about .about-image2,
+      section#about .about-image3,
+      section#about .about-image4,
+      section#about .about-image5 {
+        height: 198px; } }
+  section#about .about-image1 {
+    position: absolute;
+    top: 25%;
+    left: -5%; }
+    @media only screen and (min-width: 22.5em) {
+      section#about .about-image1 {
+        top: 30%; } }
+    @media only screen and (min-width: 48em) {
+      section#about .about-image1 {
+        left: -4%; } }
+    @media only screen and (min-width: 75em) {
+      section#about .about-image1 {
+        left: -2%; } }
+  section#about .about-image2 {
+    position: absolute;
+    bottom: 7%;
+    left: 20%; }
+    @media only screen and (min-width: 22.5em) {
+      section#about .about-image2 {
+        bottom: 5%; } }
+    @media only screen and (min-width: 48em) {
+      section#about .about-image2 {
+        bottom: 4%; } }
+    @media only screen and (min-width: 64em) {
+      section#about .about-image2 {
+        bottom: 4%;
+        left: 60%; } }
+    @media only screen and (min-width: 75em) {
+      section#about .about-image2 {
+        bottom: 8%;
+        left: 57%; } }
+  section#about .about-image3 {
+    position: absolute;
+    top: 29.8%;
+    left: 68%; }
+    @media only screen and (min-width: 22.5em) {
+      section#about .about-image3 {
+        top: 35%;
+        left: 70%; } }
+    @media only screen and (min-width: 48em) {
+      section#about .about-image3 {
+        top: 45%; } }
+    @media only screen and (min-width: 64em) {
+      section#about .about-image3 {
+        top: 20%;
+        left: 85%; } }
+  section#about .about-image4 {
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    overflow: hidden; }
+    @media only screen and (min-width: 22.5em) {
+      section#about .about-image4 {
+        left: 71%;
+        bottom: 0%; } }
+    @media only screen and (min-width: 64em) {
+      section#about .about-image4 {
+        left: 83%;
+        bottom: -1%; } }
+  section#about .about-image5 {
+    position: absolute;
+    bottom: 0;
+    left: -10%; }
+    @media only screen and (min-width: 48em) {
+      section#about .about-image5 {
+        left: 0; } }
+
+section#experience {
+  background-color: #161513;
+  overflow: hidden;
+  position: relative; }
+  @media only screen and (max-width: 768px) {
+    section#experience {
+      background-attachment: scroll; } }
+  @media only screen and (min-width: 48em) {
+    section#experience {
+      background-color: black; } }
+  section#experience .experience-content {
+    background: rgba(79, 50, 68, 0.7);
+    padding: 5rem 2rem; }
+    @media only screen and (min-width: 48em) {
+      section#experience .experience-content {
+        margin: 1rem;
+        padding: 5rem 1.5rem; } }
+    @media only screen and (min-width: 64em) {
+      section#experience .experience-content {
+        min-height: 75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center; } }
+    section#experience .experience-content h4 {
+      padding-bottom: 3.5rem;
+      text-align: center; }
+    section#experience .experience-content h5 {
+      padding-bottom: 0.1rem; }
+    section#experience .experience-content span {
+      display: inline-block;
+      padding-bottom: 2rem; }
+    section#experience .experience-content .content-border {
+      border-bottom: 0.1rem solid #dadada;
+      padding-bottom: 3rem;
+      margin-bottom: 3rem; }
+
+section#testimonial {
+  background: url("../images/bg-dark.png") center center/cover no-repeat fixed; }
+  @media only screen and (min-width: 48em) {
+    section#testimonial .testimonial-wrapper {
+      overflow-x: hidden;
+      overflow: hidden; } }
+  section#testimonial .testimonial-wrapper img {
+    width: 100%;
+    margin-top: 3rem; }
+    @media only screen and (min-width: 48em) {
+      section#testimonial .testimonial-wrapper img {
+        width: 160%;
+        margin-top: 0;
+        padding-left: 1rem; } }
+    @media only screen and (min-width: 64em) {
+      section#testimonial .testimonial-wrapper img {
+        width: 100%; } }
+
+section#services {
+  background: url("../images/bg-dark.png") center/cover no-repeat fixed; }
+  section#services .services-wrapper {
+    position: relative; }
+    @media only screen and (min-width: 48em) {
+      section#services .services-wrapper {
+        flex-wrap: wrap; } }
+    @media only screen and (min-width: 64em) {
+      section#services .services-wrapper {
+        flex-wrap: nowrap; } }
+  section#services .services-wrapper img {
+    height: 80%;
+    padding: 1rem; }
+  section#services .card {
+    margin-bottom: 7rem;
+    position: relative; }
+    @media only screen and (min-width: 48em) {
+      section#services .card {
+        margin: 0.5rem;
+        margin-bottom: 8rem; } }
+    section#services .card-body {
+      padding: 1.5rem 0 4rem 0;
+      min-height: 14rem;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      section#services .card-body h3 {
+        max-width: 80%; }
+  section#services .btn-position {
+    position: absolute;
+    bottom: -4%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 84%;
+    padding: 0.3rem 0.5rem; }
+  section#services .btn {
+    -webkit-box-shadow: -1px 25px 56px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 25px 56px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 25px 56px 2px rgba(0, 0, 0, 0.75);
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem; }
+  section#services .other-services {
+    width: 66%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 !important; }
+    @media only screen and (min-width: 48em) {
+      section#services .other-services .btn-all-services-position {
+        position: absolute;
+        bottom: -5%;
+        left: 50%;
+        transform: translate(-50%, 0%); } }
+
+section#portfolio .portfolio-wrapper img {
+  width: 100%;
+  padding: 1rem; }
+
+section#contact {
+  background-color: #161513;
+  position: relative; }
+  section#contact .contact-area {
+    background: rgba(79, 50, 68, 0.7);
+    padding: 5rem 2rem; }
+    @media only screen and (min-width: 22.5em) {
+      section#contact .contact-area {
+        min-width: 35rem; } }
+    @media only screen and (min-width: 48em) {
+      section#contact .contact-area {
+        margin-left: 0.7rem;
+        min-height: 86rem; } }
+  section#contact .form-control {
+    border: 1px solid #c3bec2;
+    height: 5rem;
+    background: #fff;
+    margin-bottom: 3rem; }
+  section#contact #contact-me-btn,
+  section#contact .callMe-btn {
+    border-radius: 0.5rem;
+    width: 100%;
+    margin: 0 auto 3rem; }
+  section#contact #terms-con-button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 84%;
+    padding: 0 0.5rem; }
+  section#contact .contact-details {
+    background: rgba(55, 38, 57, 0.64);
+    padding: 5rem 2rem;
+    margin-bottom: 2rem;
+    overflow: hidden; }
+    @media only screen and (min-width: 22.5em) {
+      section#contact .contact-details {
+        min-width: 35rem; } }
+    @media only screen and (min-width: 48em) {
+      section#contact .contact-details {
+        margin-right: 0.7rem;
+        min-height: 86rem; } }
+    section#contact .contact-details table.table {
+      background: #fff;
+      padding-top: 0 !important;
+      margin-top: 0 !important; }
+      section#contact .contact-details table.table td,
+      section#contact .contact-details table.table th {
+        padding: 1.5rem 0.6rem; }
+  section#contact .table > :not(caption) > * > * {
+    padding: 0.4rem;
+    text-align: left; }

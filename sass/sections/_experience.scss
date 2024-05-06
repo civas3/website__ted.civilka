@@ -1,0 +1,47 @@
+//EXPERIENCE
+section#experience {
+  background-color: #161513;
+  overflow: hidden;
+  position: relative;
+  @include ios-scroll-fixed;
+
+  @include respond(tab-port) {
+    //background: url(../images/exp-desktop.jpg) no-repeat center center fixed;
+    background-color: black;
+  }
+
+  .experience-content {
+    background: rgba(79, 50, 68, 0.7);
+    padding: 5rem 2rem;
+
+    @include respond(tab-port) {
+      margin: 1rem;
+      padding: 5rem 1.5rem;
+    }
+    @include respond(tab-land) {
+      min-height: 75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+    }
+
+    h4 {
+      padding-bottom: 3.5rem;
+      text-align: center;
+    }
+    h5 {
+      padding-bottom: 0.1rem;
+    }
+    span {
+      display: inline-block;
+      padding-bottom: 2rem;
+    }
+
+    .content-border {
+      border-bottom: 0.1rem solid #dadada;
+      padding-bottom: 3rem;
+      margin-bottom: 3rem;
+    }
+  }
+}

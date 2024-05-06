@@ -1,0 +1,26 @@
+//FOOTER
+footer#footer {
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+  background: #222222;
+
+  .main-footer {
+    @include respond(tab-port) {
+        width: 100%;
+      }
+    .social {
+      a {
+        margin-bottom: 1rem;
+        padding-bottom: 3rem;
+      }
+
+      i {
+        padding: 0 1rem 0 1rem;
+        margin-right: 1rem;
+      }
+    }
+    .rights{
+      padding: 0 1rem;
+    }
+  }
+}

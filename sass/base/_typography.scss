@@ -1,0 +1,208 @@
+//GLOBAL typography
+p {
+  line-height: 3rem;
+  font-size: 1.8rem;
+}
+
+//headers
+h2 {
+  font-size: 3.4rem;
+  text-shadow: black 0.1rem 0.1rem;
+  overflow: hidden; 
+  &:not(:first-child) {
+    font-weight: bold;
+  }
+  @include respond(tab-land) {
+    font-size: 4rem;
+  }
+}
+
+h3,
+h4,
+h5 {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  text-shadow: black 0.1rem 0.1rem;
+  color: white;
+}
+
+
+a {
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+//tables
+th,
+td {
+  font-size: 1.8rem;
+  @include respond(tab-land) {
+    font-size: 1.6rem;
+  }
+}
+th {
+  padding-left: 2rem !important;
+  text-align: left;
+}
+td {
+  text-align: center !important;
+}
+
+//span
+span {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+//button
+.btn {
+  font-size: 2.1rem;
+  // text-shadow: black 0.2rem 0.2rem;
+  color: white;
+  text-transform: uppercase;
+  @include respond(tab-port) {
+    font-size: 2rem !important;
+  }
+}
+
+//favicons
+.fa {
+  font-size: 2rem !important;
+  padding-bottom: 1rem;
+}
+
+//modals
+#service-modal1,
+#service-modal2,
+#service-modal3,
+#service-modal4,
+#service-modal-other,
+#service-modal-terms {
+  color: #333333;
+  h5 {
+    color: black;
+  }
+}
+
+//GLOBAL ends
+
+//HERO SECTION
+section#hero {
+  color: white;
+  .effect {
+    text-align: center;
+    text-shadow: 0.2rem 0.2rem rgb(0, 0, 0);
+  }
+  .hero-content {
+    .h-text1 {
+      color: #f6f09d;
+      font-size: 3.6rem;
+      letter-spacing: 0.3rem;
+      @include respond(tab-port) {
+        font-size: 5rem;
+      }
+    }
+    .h-text2 {
+      font-size: 2rem;
+      color: white;
+      @include respond(tab-port) {
+        font-size: 3.4rem;
+      }
+    }
+  }
+  .subtitle {
+    text-align: center;
+    text-shadow: 0.2rem 0.2rem rgb(0, 0, 0);
+    color: white;
+    font-size: 2rem;
+    @include respond(tab-port) {
+      font-size: 3.4rem;
+    }
+    @include respond(large-desktop) {
+      font-size: 2rem;
+    }
+  }
+}
+
+//TESTIMONIAL SECTION
+section#testimonial {
+  h3 {
+    color: black;
+  }
+}
+
+//EXPERIENCE
+section#experience {
+  .experience-content {
+    color: #f2f2f2;
+    h4 {
+      font-size: 2.8rem;
+      font-weight: bold;
+    }
+    h5 {
+      text-transform: capitalize;
+    }
+    span {
+      color: white;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+//SERVICE SECTION
+section#services {
+  .card {
+    h3 {
+      color: black;
+    }
+  }
+  .model {
+    text-align: left;
+  }
+}
+
+//CONTACT
+section#contact {
+  .form-control {
+    font-size: 1.6rem;
+  }
+
+  #terms-con-button {
+    font-size: 1.8rem;
+  }
+  .contact-details {
+    color: white;
+  }
+  .modal-body {
+    p,
+    span {
+      font-size: 1.6rem !important;
+    }
+  }
+}
+
+//FOOTER
+footer#footer {
+  position: relative;
+  color: white;
+  .main-footer {
+    .social {
+      a {
+        color: #f2f2f2;
+        font-size: 1.5rem;
+        &:hover {
+          color: #f6f09d;
+        }
+      }
+    }
+    .rights {
+      font-size: 1.4rem;
+      position: absolute;
+      bottom: 5%;
+      span {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
